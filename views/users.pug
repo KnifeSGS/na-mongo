@@ -1,0 +1,38 @@
+extends layout
+
+block content
+  .container
+    h1 Felhasználók
+    .row 
+      .col-12.d-grid.gap-2 
+        a.btn.btn-primary(href="/users/create") Új felhasználó
+    table.table.table-striped
+      thead 
+        tr 
+          th #
+          th Name 
+          th Age 
+          th Email 
+          th Birthdate 
+          th 
+      tbody 
+        - var nth = 0
+        each user in users
+          - nth++ 
+          tr 
+            td= nth
+            td= user.name
+            td= user.age
+            td= user.email
+            - var bd = new Date(user.bd);
+            - var bdArray = [bd.getFullYear(), bd.getMonth()+1, bd.getDate()];
+            - bdArray[1] = bdArray[1] < 10 ? "0"+bdArray[1] : bdArray[1];
+            - bdArray[2] = bdArray[2] < 10 ? "0"+bdArray[2] : bdArray[2];
+            - var bdString = bdArray.join('-');
+            td= bdString
+            td
+              .btn-group
+                - var infoUrl = '/users/show/' + user._id
+                a.btn.btn-info(href=infoUrl) info
+                - var deleteUrl = '/users/delete/' + user._id
+                a.btn.btn-danger.delete-user-btn(href=deleteUrl) delete

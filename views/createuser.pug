@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  .container
+    h1 Felhasználó létrehozása
+    -var actionUrl = '/users/create/';
+    form.form(action=actionUrl, method="post")
+      .form-group 
+        label Név 
+        input(type="text", name="name", class="form-control")
+      .form-group 
+        label Kor 
+        input(type="number", name="age", class="form-control")
+      .form-group 
+        label E-mail 
+        input(type="email", name="email", class="form-control")
+      .form-group 
+        label Születési idő
+        input(type="date", name="bd", class="form-control")
+      .form-group.d-grid.gap-2
+        button.btn.btn-success(type="submit") Mentés

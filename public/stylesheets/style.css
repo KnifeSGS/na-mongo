@@ -1,0 +1,14 @@
+* {
+  box-sizing: border-box;
+  margin-top: .5rem;
+}
+
+body {
+  padding: 1rem;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
